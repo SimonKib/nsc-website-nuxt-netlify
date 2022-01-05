@@ -13,7 +13,7 @@ export default {
   env: {
     url:
       process.env.NODE_ENV === 'production'
-        ? process.env.URL || 'http://createADotEnvFileAndSetURL'
+        ? process.env.URL
         : 'http://localhost:3000',
     lang: SITE_INFO.sitelang || 'en-US'
   },
@@ -21,14 +21,14 @@ export default {
    ** Headers of the page
    */
   head: {
-    title: SITE_INFO.sitename || process.env.npm_package_name || '',
+    title: SITE_INFO.sitename || '',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       {
         hid: 'description',
         name: 'description',
-        content: SITE_INFO.sitedescription || process.env.npm_package_description || ''
+        content: SITE_INFO.sitedescription || ''
       }
     ],
     link: [
@@ -96,7 +96,7 @@ export default {
     /*
      ** You can extend webpack config here
      */
-    extend(config, ctx) {}
+    extend(config, ctx) { }
   },
   /*
    ** Custom additions configuration
@@ -144,9 +144,9 @@ export default {
       source: 'static/icon.png',
       filename: 'icon.png'
     },
-    manifest: { name: SITE_INFO.sitename || process.env.npm_package_name || '', lang: process.env.lang },
+    manifest: { name: SITE_INFO.sitename || '', lang: process.env.lang },
     meta: {
-      name: SITE_INFO.sitename || process.env.npm_package_name || '',
+      name: SITE_INFO.sitename || '',
       lang: process.env.lang,
       ogHost: process.env.URL,
       ogImage: '/preview.jpg'
